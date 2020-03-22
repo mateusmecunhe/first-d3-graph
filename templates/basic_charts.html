@@ -105,18 +105,18 @@
                 .selectAll('g')
                 .data(['Home Team', 'Others'])
                 .enter().append('g')
-            
+
             legend.append('circle')
-            .attr('cy', function(d, i){
-                debugger
-                return i * 30
-            })
-            .attr('r', d => d == 'Home Team' ? radius * multiplier : radius)
-            .attr('fill', d => d == 'Home Team' ? 'red' : 'blue')
+                .attr('cy', function (d, i) {
+                    debugger
+                    return i * 30
+                })
+                .attr('r', d => d == 'Home Team' ? radius * multiplier : radius)
+                .attr('fill', d => d == 'Home Team' ? 'red' : 'blue')
             legend.append('text')
-            .attr('y', (d,i)=> {return i * 30 + 5})
-            .attr('x', radius*5)
-            .text(d=> d)
+                .attr('y', (d, i) => {return i * 30 + 5 })
+                .attr('x', radius * 5)
+                .text(d => d)
 
 
 
@@ -135,7 +135,7 @@
           */
 
         format = d3.time.format("%d-%m-%Y (%H:%M h)")
-        d3.tsv("{{url_for('static', filename='world_cup_geo.tsv')}}",  (d)=> {
+        d3.tsv("{{url_for('static', filename='world_cup_geo.tsv')}}", (d) => {
             //transform data -> d is a single row of data
             d['date'] = format.parse(d['date'])
             d['attendance'] = +d['attendance']
